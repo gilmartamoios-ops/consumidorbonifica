@@ -49,7 +49,7 @@ E quase sempre…<br><br>
 <span class="green">pagando mais caro</span><br>do que poderia
 </div>
 </div>
-<div class="slide">
+ <div class="slide">
 <div class="card text-2xl">
 Existe uma forma diferente:<br><br>
 comprar melhor<br>
@@ -73,29 +73,63 @@ Se fizer sentido pra você…<br><br>
 te explico como funciona 👇
 </div>
 </div>
-<div class="slide">
-<div class="card text-2xl">
-Existe uma forma diferente:<br><br>
-comprar melhor<br>
-<span class="green">direto da fonte</span><br>
-com mais consciência
-</div>
+ </div>
+
+<div class="max-w-md mx-auto p-4">
+
+<button class="btn" onclick="next()">Próximo</button>
+<button class="btn-back" onclick="prev()">Anterior</button>
+
+<button class="btn" onclick="copiarTexto()">Copiar legenda</button>
+<button class="btn" onclick="baixar()">Baixar imagens</button>
+
 </div>
 
-<div class="slide">
-<div class="card text-2xl">
-E o melhor:<br><br>
-você não precisa escolher sozinho<br><br>
-<span class="yellow">existe uma curadoria</span><br>
-que te orienta
-</div>
-</div>
+<script>
 
-<div class="slide">
-<div class="card text-2xl">
-Se fizer sentido pra você…<br><br>
-te explico como funciona 👇
-</div>
-</div>
+let index = 0;
+let slides = document.querySelectorAll(".slide");
 
+function show(i){
+slides.forEach(s=>s.classList.remove("active"));
+slides[i].classList.add("active");
+}
+
+function next(){
+if(index < slides.length-1){
+index++;
+show(index);
+}
+}
+
+function prev(){
+if(index > 0){
+index--;
+show(index);
+}
+}
+
+function copiarTexto(){
+let texto = `Você já consome todos os meses.
+
+Mas talvez esteja pagando mais do que deveria.
+
+Existe uma forma mais inteligente de consumir,
+com acesso a uma curadoria que te orienta.
+
+Se quiser entender como funciona,
+me chama.`;
+
+navigator.clipboard.writeText(texto);
+alert("Legenda copiada!");
+}
+
+function baixar(){
+alert("Para baixar: tire print de cada tela 📲");
+}
+
+</script>
+
+</body>
+</html>
 
